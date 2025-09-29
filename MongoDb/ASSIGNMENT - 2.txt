@@ -1,45 +1,55 @@
 ****************************************************************** ASSIGNMENT - 2 **********************************************************************
 
+1st Query :
 db.products.aggregate([
 	{$match : {price : {$gte : 1000}}}
 ])
 
+2nd Query :
 db.products.aggregate([
 	{$group : {_id : "$category", totalNumberOfProducts : {$sum : 1}}}
 ])
 
+3rd Query :
 db.products.aggregate([
 	{$group : {_id : "$category", maxPrice : {$max : "$price"}, minPrice : {$min : "$price"}}}
 ])
 
+4th Query :
 db.products.aggregate([
 	{$sort : {price : -1}},
 	{$project : {_id : 0, name : 1, price : 1}},
 	{$limit : 3}
 ])
 
+5th Query :
 db.products.aggregate([
 	{$group : {_id : "$supplier.country", avgPrice : {$avg : "$price"}}}
 ])
 
+6th Query:
 db.products.aggregate([
 	{$match : {stock : {$lte : 10}}}
 ])
 
+7th Query :
 db.products.aggregate([
 	{$group : {_id : "$category", totalStockValue : {$sum : {$multiply : ["$price", "$stock"]}}}}
 ])
 
+8th Query :
 db.products.aggregate([
 	{$sort : {createdAt : -1}},
 	{$limit : 5}
 ])
 
+9th Query :
 db.products.aggregate([
 	{$group : {_id : "$category", ProductCount : {$sum : 1}}},
-	{$match : {ProductCount : {$gt : 5}}}
+	{$match : {ProductCount : {$gt : 2}}}
 ])
 
+10th Query :
 db.products.aggregate([
 	{$group : {_id : "$category", totalStockValue : {$sum : {$multiply : ["$price", "$stock"]}}}},
 	{$sort : {totalStockValue : -1}},
