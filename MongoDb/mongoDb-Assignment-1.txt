@@ -1,0 +1,185 @@
+db.student.insertMany([{"name" : "Sumit", "city" : "Delhi", "dept" : "IT", "age" : 36}, {"name" : "Aakash", "city" : "Delhi", "dept" : "IT", "age" : 37}, {"name" : "Arun", "city" : "Delhi", "dept" : "IT", "age" : 38}])
+ db.student.find().pretty()
+
+
+db.monuments.aggregate([
+	{$match: { "city" : {$in : ["luxor", "new York"]}}}])
+
+
+
+
+
+
+***********************************ASSIGNMENT - 1******************************
+
+******************************1st Query ----->****************************
+db.foodItems.insertOne({
+  name: "Samosa",
+  calories: 250,
+  brand: ["Haldiram", "Bikanervala"],
+  category: "snack",
+  price: 20
+})
+
+db.foodItems.insertOne({
+  name: "Orange Juice",
+  calories: 150,
+  brand: ["Real", "Tropicana"],
+  category: "juices",
+  price: 50
+})
+
+db.foodItems.insertMany([
+  {
+    name: "Thali Meal",
+    calories: 800,
+    brand: ["BTW", "Sagar Ratna"],
+    category: "meals",
+    price: 200
+  },
+  {
+    name: "Chips",
+    calories: 300,
+    brand: ["Lays", "Uncle Chips"],
+    category: "snack",
+    price: 30
+  },
+  {
+    name: "Mango Shake",
+    calories: 220,
+    brand: ["Cafe Coffee Day", "Local Vendor"],
+    category: "juices",
+    price: 70
+  }
+])
+
+db.restaurants.insertOne({
+  name: "Haldiram Outlet",
+  year: 1990,
+  location: "Connaught Place, Delhi",
+  contact: "011-23456789",
+  email: "info@haldiram.com",
+  nos_of_days_open: 365,
+  city: "Delhi",
+  category: "meals",
+  serving: ["Dining", "Takeaway"]
+})
+
+db.restaurants.insertOne({
+  name: "Bikanervala",
+  year: 2000,
+  location: "Noida Sector 18",
+  contact: "0120-4567890",
+  email: "contact@bikanervala.com",
+  nos_of_days_open: 350,
+  city: "Noida",
+  category: "snack",
+  serving: ["Dining", "Buffet"]
+})
+
+db.restaurants.insertMany([
+  {
+    name: "Cafe Coffee Day",
+    year: 1996,
+    location: "Bangalore MG Road",
+    contact: "080-9876543",
+    email: "ccd@coffee.com",
+    nos_of_days_open: 365,
+    city: "Bangalore",
+    category: "juices",
+    serving: ["Dining", "Takeaway"]
+  },
+  {
+    name: "BTW Restaurant",
+    year: 2010,
+    location: "Karol Bagh, Delhi",
+    contact: "011-78945612",
+    email: "contact@btw.com",
+    nos_of_days_open: 300,
+    city: "Delhi",
+    category: "meals",
+    serving: ["Dining"]
+  },
+  {
+    name: "Dominos Pizza",
+    year: 1995,
+    location: "Jaipur MI Road",
+    contact: "0141-6543210",
+    email: "support@dominos.com",
+    nos_of_days_open: 365,
+    city: "Jaipur",
+    category: "snack",
+    serving: ["Dining", "Takeaway", "Buffet"]
+  }
+])
+
+
+
+
+************************************2nd Query ----->******************************
+db.foodItems.find({"category" : "juices"})
+
+
+
+
+*************************************3rd Query ----->**********************************
+db.restaurants.aggregate([
+	{$match : {city : {$in : ["Delhi", "Mumbai"]}}}
+])
+
+
+
+
+************************************4th Query ----->*********************************
+db.foodItems.updateOne(
+	{category : "snacks"},
+	{$set : {"price" : 7000}}
+)
+
+
+
+
+**************************************5th Query ----->********************************
+db.restaurants.updateOne(
+	{city : "Delhi"},
+	{$set : {city : "Mumbai"}}
+)
+db.foodItems.deleteOne(
+	{brand : "Haldiram"}
+)
+db.foodItems.deleteMany(
+	{category : "juices"}
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

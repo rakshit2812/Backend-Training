@@ -1,0 +1,47 @@
+****************************************************************** ASSIGNMENT - 2 **********************************************************************
+
+db.products.aggregate([
+	{$match : {price : {$gte : 1000}}}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$category", totalNumberOfProducts : {$sum : 1}}}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$category", maxPrice : {$max : "$price"}, minPrice : {$min : "$price"}}}
+])
+
+db.products.aggregate([
+	{$sort : {price : -1}},
+	{$project : {_id : 0, name : 1, price : 1}},
+	{$limit : 3}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$supplier.country", avgPrice : {$avg : "$price"}}}
+])
+
+db.products.aggregate([
+	{$match : {stock : {$lte : 10}}}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$category", totalStockValue : {$sum : {$multiply : ["$price", "$stock"]}}}}
+])
+
+db.products.aggregate([
+	{$sort : {createdAt : -1}},
+	{$limit : 5}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$category", ProductCount : {$sum : 1}}},
+	{$match : {ProductCount : {$gt : 5}}}
+])
+
+db.products.aggregate([
+	{$group : {_id : "$category", totalStockValue : {$sum : {$multiply : ["$price", "$stock"]}}}},
+	{$sort : {totalStockValue : -1}},
+	{$limit : 2}
+])

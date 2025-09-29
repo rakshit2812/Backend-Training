@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 899.99
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "price": 599.99
+  },
+  {
+    "id": 3,
+    "name": "Coffee Maker",
+    "price": 79.99
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 119.99
+  },
+  {
+    "id": 5,
+    "name": "Desk Chair",
+    "price": 249.99
+  },
+  {
+    "id": 6,
+    "name": "Wireless Headphones",
+    "price": 199.99
+  },
+  {
+    "id": 7,
+    "name": "Backpack",
+    "price": 49.99
+  },
+  {
+    "id": 8,
+    "name": "Water Bottle",
+    "price": 24.99
+  },
+  {
+    "id": 9,
+    "name": "JavaScript Guide Book",
+    "price": 39.99
+  },
+  {
+    "id": 10,
+    "name": "Yoga Mat",
+    "price": 29.99
+  },
+  {
+    "id": 11,
+    "name": "hjdvchs",
+    "price": 763
+  },
+  {
+    "id": 12,
+    "name": "hjdfw",
+    "price": 32
+  },
+  {
+    "id": 13,
+    "name": "sc",
+    "price": 1
+  }
+]
